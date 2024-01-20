@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,32 +9,16 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
-  email: string = '';
-  password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  isSignIn = true;
 
-  ngOnInit(): void {
-    // Make sure to wait for the DOM to be ready before accessing elements
-    document.addEventListener('DOMContentLoaded', () => {
-      const signUpButton = document.getElementById('signUp');
-      const signInButton = document.getElementById('signIn');
-      const container = document.getElementById('container');
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
 
-      if (signUpButton && signInButton && container) {
-        signUpButton.addEventListener('click', () => {
-          container.classList.add("right-panel-active");
-        });
+  ngOnInit(): void {}
 
-        signInButton.addEventListener('click', () => {
-          container.classList.remove("right-panel-active");
-        });
-      }
-    });
-  }
+  signIn(signInForm: NgForm): void {
 
-  signIn(): void {
-    if (this.authService.authenticate(this.email, this.password)) {
+    if (this.authService.authenticate(signInForm.value.email, signInForm.value.password)) {
       // Authentication successful, navigate to another page
       this.router.navigate(['/dashboard']); // Replace 'dashboard' with your desired route
     } else {

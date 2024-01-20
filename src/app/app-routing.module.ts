@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
+  // { path: 'sign-up', component:SignInComponent, data: { isSignIn: false} },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
