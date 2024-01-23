@@ -1,0 +1,22 @@
+.body-image{
+    max-height: 400px;
+    width: 100%;
+}
+
+.body-header{
+    background-image: url(../../assets/images/church01.jpg);
+    background-size: cover;
+    background-position: center right;
+    max-height: 400px;
+    width: 100%;
+    padding: 130px 0px
+}
+
+.card{
+    height: 5rem;
+    font-size: .8rem;
+}
+
+.body-content{
+    padding: 0 2rem;
+}

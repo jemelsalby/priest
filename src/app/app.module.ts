@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeBodyComponent } from './home-body/home-body.component';
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
+    HomeBodyComponent,    
   ],
   imports: [
     BrowserModule,
