@@ -1,10 +1,14 @@
-main{
+main, body{
     background-color: #CAF0F8;
 }
 
 .body-image{
     max-height: 400px;
     width: 100%;
+}
+
+.text-primary{
+    color: #001d3d !important;
 }
 
 .body-header{
@@ -33,4 +37,11 @@ main{
 
 .body-content{
     padding: 0 2rem;
+}
+
+.bi{
+    font-size: 1rem;
+}
+.card:hover .bi{
+    font-size:1.05rem;
 }

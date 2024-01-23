@@ -3,18 +3,19 @@
     <!-- Image cover with title -->
     <div class="row">
         <div class="col-12 mb-2">
-            <section class="body-header rounded text-center">
+            <section class="body-header rounded text-center text-primary">
                 <h2>St Mary's Church</h2>
             </section>
         </div>
     </div>
     <!-- Different naviagation boxes -->
-    <div class="row my-2 body-content" >
+    <div class="row my-2 body-content">
         <div class="col-12">
             <div class="row g-3">
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2" *ngFor="let item of bodyItems">
                     <div class="card text-center" style="cursor: pointer;">
-                        <div class="card-body d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex  flex-column justify-content-center align-items-center">
+                            <i class="bi bi-bell"></i>
                             <div class="card-title">{{ item }}</div>
                         </div>
                     </div>
