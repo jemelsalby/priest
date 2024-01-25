@@ -1,0 +1,47 @@
+main, body{
+    background-color: #CAF0F8;
+}
+
+.body-image{
+    max-height: 400px;
+    width: 100%;
+}
+
+.text-primary{
+    color: #001d3d !important;
+}
+
+.body-header{
+    background-image: url(../../assets/images/church01.jpg);
+    background-size: cover;
+    background-position: center right;
+    max-height: 400px;
+    width: 100%;
+    padding: 130px 0px
+}
+
+.card{
+    height: 5rem;
+    font-size: 0.8rem;
+    background-color: #00B4D8;
+    color: white;
+    border: 1px solid #00B4D8;
+    transition: all 0.5s;
+}
+
+.card:hover{
+    color: black;
+    font-size: 0.85rem;
+    background-color: #90E0EF;
+}
+
+.body-content{
+    padding: 0 2rem;
+}
+
+.bi{
+    font-size: 1rem;
+}
+.card:hover .bi{
+    font-size:1.05rem;
+}
