@@ -1,0 +1,30 @@
+[
+    {
+        "name": "John",
+        "position": "head",
+        "contact-details": {
+            "phone-number": 9847286982,
+            "email": "john@gmail.com"
+        },
+        "soicals":{
+            "instagram":"instagram/john"
+        },
+        "current-church": "St lksf",
+        "previous-church": "St jlud",
+        "current-location": "kakkanad"
+    },
+    {
+        "name": "Doe",
+        "position": "assitant",
+        "contact-details": {
+            "phone-number": 9847286982,
+            "email": "doe@gmail.com"
+        },
+        "soicals":{
+            "instagram":"instagram/doe"
+        },
+        "current-church": "St lksf",
+        "previous-church": "St jlud",
+        "current-location": "kallamessery"
+    }
+]
