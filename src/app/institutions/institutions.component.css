@@ -1,0 +1,9 @@
+main, body{
+    background-color: #CAF0F8;
+    color: #001d3d !important;
+}
+
+.table{
+    --bs-table-color:  #001d3d !important;
+    /* border-radius: 5px; */
+}

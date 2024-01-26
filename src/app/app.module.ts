@@ -6,11 +6,13 @@ import { AuthService } from './auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
+import { InstitutionsComponent } from './institutions/institutions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeBodyComponent,    
+    HomeBodyComponent,
+    InstitutionsComponent,    
   ],
   imports: [
     BrowserModule,

@@ -9,13 +9,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class HomeBodyComponent implements OnInit {
 
   bodyItems = [
-    'Priest Directory',
-    'About', 
-    'Family Directory', 
-    'Gallery', 
-    'Help and Advice',
-    'Institutions',
-    'DioceseCalendar'
+    {name: 'Priest Directory', link: ''},
+    {name: 'About', link: ''}, 
+    {name: 'Family Directory', link: ''}, 
+    {name: 'Gallery', link: ''}, 
+    {name: 'Help and Advice', link: ''},
+    {name: 'Institutions', link: 'institutions'},
+    {name: 'DioceseCalendar', link: ''},
   ]
 
   constructor() { }
