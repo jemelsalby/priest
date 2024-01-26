@@ -10,15 +10,10 @@ export class HomeBodyComponent implements OnInit {
 
   bodyItems = [
     'Priest Directory',
-    'Notification',
-    'Parish List', 
+    'About', 
     'Family Directory', 
-    'Family Groups', 
-    'Family Card', 
+    'Gallery', 
     'Help and Advice',
-    'Guidelines',
-    'Teachers',
-    'Downloads',
     'Institutions',
     'DioceseCalendar'
   ]
