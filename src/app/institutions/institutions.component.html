@@ -1,26 +1,28 @@
-<main >
+<main>
     <div class="container">
         <div class="row">
             <div class="col-12 my-2">
                 <h2 class="pt-3"> Schools </h2>
-                <table class="my-3 table table-hover rounded rounded-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name of school</th>
-                            <th scope="col">District</th>
-                            <th scope="col">Syllabus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let institute of institutions; let i = index">
-                            <td>{{ i+1 }}</td>
-                            <td>{{ institute.name }}</td>
-                            <td>{{ institute.district }}</td>
-                            <td>{{ institute.syllabus }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="my-3 table table-hover rounded rounded-3 overflow-hidden">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name of school</th>
+                                <th scope="col">District</th>
+                                <th scope="col">Syllabus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let institute of institutions; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ institute.name }}</td>
+                                <td>{{ institute.district }}</td>
+                                <td>{{ institute.syllabus }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
