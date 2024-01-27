@@ -15,6 +15,7 @@ export class HomeBodyComponent implements OnInit {
     {name: 'Help and Advice', link: '', icon: 'bi-question'},
     {name: 'Schools', link: 'schools', icon: 'bi-building'},
     {name: 'DioceseCalendar', link: '', icon: 'bi-calendar'},
+    
   ]
 
   constructor() { }
