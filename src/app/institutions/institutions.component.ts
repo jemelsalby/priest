@@ -5,7 +5,7 @@ import { InstitutionsService } from '../shared/institutions.service';
   selector: 'app-institutions',
   templateUrl: './institutions.component.html',
   styleUrls: ['./institutions.component.css'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class InstitutionsComponent implements OnInit {
 

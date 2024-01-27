@@ -4,18 +4,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'app-home-body',
   templateUrl: './home-body.component.html',
   styleUrls: ['./home-body.component.css'],
-  // encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeBodyComponent implements OnInit {
 
   bodyItems = [
-    {name: 'Priest Directory', link: ''},
-    {name: 'About', link: ''}, 
-    {name: 'Family Directory', link: ''}, 
-    {name: 'Gallery', link: ''}, 
-    {name: 'Help and Advice', link: ''},
-    {name: 'Institutions', link: 'institutions'},
-    {name: 'DioceseCalendar', link: ''},
+    {name: 'About', link: '', icon: 'bi-info' }, 
+    {name: 'Family Directory', link: '', icon: 'bi-people-fill'}, 
+    {name: 'Gallery', link: '', icon: ' bi-images'}, 
+    {name: 'Help and Advice', link: '', icon: 'bi-question'},
+    {name: 'Schools', link: 'schools', icon: 'bi-building'},
+    {name: 'DioceseCalendar', link: '', icon: 'bi-calendar'},
   ]
 
   constructor() { }

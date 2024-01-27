@@ -8,7 +8,7 @@ const routes: Routes = [
     path:"", component: HomeBodyComponent
   },
   {
-    path:"institutions", component: InstitutionsComponent
+    path:"schools", component: InstitutionsComponent
   }
 ];
 
