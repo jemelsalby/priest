@@ -1,0 +1,15 @@
+/* Add margin to body to prevent content from being hidden under fixed navbar */
+body {
+    margin-top: 56px; /* Height of the fixed navbar */
+  }
+  
+  /* Adjust footer position to not overlap with the fixed navbar */
+  .footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #0a4275;
+    color: white;
+    margin-top: 60px; /* Adjust this value to create space between content and footer */
+  }
+  
