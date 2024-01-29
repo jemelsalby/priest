@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { InstitutionsService } from '../shared/institutions.service';
+import { InstitutionsService } from './institutions.service';
 
 @Component({
   selector: 'app-institutions',
