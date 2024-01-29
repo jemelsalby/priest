@@ -1,0 +1,5 @@
+.table{
+    --bs-table-color:  #001d3d !important;
+    font-size: 0.95rem;
+    /* border-radius: 5px; */
+}

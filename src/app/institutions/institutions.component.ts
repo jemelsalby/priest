@@ -9,6 +9,7 @@ import { Institute, InstitutionsService } from './institutions.service';
 export class InstitutionsComponent implements OnInit {
 
   institutions: Institute[] | undefined;
+  heading: string | undefined;
 
   constructor(private institutionsService: InstitutionsService) { }
 

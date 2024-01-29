@@ -2,35 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-12 my-2">
-        <h2 class="pt-3">Schools</h2>
-        <div class="table-responsive rounded rounded-3 my-3 bg-white px-1">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name of school</th>
-                <th scope="col">District</th>
-                <th scope="col">Syllabus</th>
-                <th scope="col">Principal</th>
-                <th scope="col">Manager</th>
-                <th scope="col">Phone No.</th>
-                <th scope="col">Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let institute of institutions; let i = index">
-                <td>{{ i + 1 }}</td>
-                <td>{{ institute.name }}</td>
-                <td>{{ institute.district }}</td>
-                <td>{{ institute.syllabus }}</td>
-                <td>{{ institute.principal }}</td>
-                <td>{{ institute.manager }}</td>
-                <td>{{ institute.phone }}</td>
-                <td>{{ institute.email }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h2 class="pt-3">{{ heading ? heading : 'Schools' }}</h2>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
