@@ -1,9 +1,5 @@
-main, body{
-    background-color: #CAF0F8;
-    color: #001d3d !important;
-}
-
 .table{
     --bs-table-color:  #001d3d !important;
+    font-size: 0.95rem;
     /* border-radius: 5px; */
 }
