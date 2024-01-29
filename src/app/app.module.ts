@@ -10,6 +10,7 @@ import { InstitutionsComponent } from './institutions/institutions.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     InstitutionsComponent,    
     NavbarComponent,
     FooterComponent,
-    AboutusComponent,    
+    AboutusComponent,
+    PagenotfoundComponent,    
   ],
   imports: [
     BrowserModule,
