@@ -1,0 +1,16 @@
+.card {
+    color: #001d3d;
+    /* color: white; */
+    background-color: white
+  }
+
+  .card-header{
+    background-color: white;
+  }
+  .list-group {
+    --bs-list-group-bg: transparent;
+    --bs-list-group-border-color: #001d3d;
+    --bs-list-group-color: #001d3d;
+    /* --bs-list-group-border-color: white;
+    --bs-list-group-color: white; */
+  }

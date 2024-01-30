@@ -13,6 +13,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { ViewInstituteComponent } from './institutions/view-institute/view-institute.component';
 import { InstituteListComponent } from './institutions/institute-list/institute-list.component';
+import { BackButtonComponent } from './shared/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InstituteListComponent } from './institutions/institute-list/institute-
     AboutusComponent,
     PagenotfoundComponent,
     ViewInstituteComponent,
-    InstituteListComponent,   
+    InstituteListComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,

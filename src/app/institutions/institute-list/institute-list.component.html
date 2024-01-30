@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let institute of institutions; let i = index" role="button">
+        <tr *ngFor="let institute of institutions; let i = index" role="button" [routerLink]="[i]">
           <td>{{ i + 1 }}</td>
           <td>{{ institute.name }}</td>
           <td>{{ institute.district }}</td>

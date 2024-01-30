@@ -37,7 +37,7 @@
     padding: 0 2rem;
 }
 
-.bi{
+.card>.bi{
     font-size: 1rem;
 }
 .card:hover .bi{

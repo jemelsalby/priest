@@ -40,4 +40,8 @@ export class InstitutionsService {
   getInstitutions(): Institute[] {
     return this.institutions.slice();
   }
+
+  getInstitution(index: number): Institute{
+    return this.institutions[index];
+  }
 }
