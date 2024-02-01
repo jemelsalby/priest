@@ -1,0 +1,14 @@
+.card{
+    height: 5rem;
+    font-size: .85rem;
+    background-color: #00B4D8;
+    color: white;
+    border: 1px solid #00B4D8;
+    transition: all 0.5s;
+}
+
+.card:hover{
+    color: black;
+    font-size: .9rem;
+    background-color: #90E0EF;
+}

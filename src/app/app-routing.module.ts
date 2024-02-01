@@ -5,9 +5,13 @@ import { InstitutionsComponent } from './institutions/institutions.component';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { InstituteListComponent } from './institutions/institute-list/institute-list.component';
 import { ViewInstituteComponent } from './institutions/view-institute/view-institute.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const routes: Routes = [
   { path: '', component: HomeBodyComponent },
+  { path: "aboutus", component: AboutusComponent },
+  { path: "notifi", component: NotificationsComponent },
   {
     path: 'schools',
     component: InstitutionsComponent,
