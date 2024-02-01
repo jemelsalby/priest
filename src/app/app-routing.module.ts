@@ -7,9 +7,11 @@ import { InstituteListComponent } from './institutions/institute-list/institute-
 import { ViewInstituteComponent } from './institutions/view-institute/view-institute.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeBodyComponent },
+  { path: 'login', component: LoginComponent },
   { path: "aboutus", component: AboutusComponent },
   { path: "notifi", component: NotificationsComponent },
   {
