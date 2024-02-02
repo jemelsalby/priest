@@ -1,23 +1,27 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-      <div class="main my-2">
-        <input type="checkbox" id="selectAuth" aria-hidden="true" />
-
-        <div class="signup">
-          <form #signUpForm="ngForm" (ngSubmit)="onSignUp(signUpForm)">
-            <label for="selectAuth" aria-hidden="true">Sign up</label>
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-12 col-md-7 col-lg-6 col-xl-5 col-xxl-5">
+      <div
+        class="main my-2 h-100 text-center bg-white rounded rounded-4 shadow p-3" 
+      >
+        <h3>{{ signInMode ? "Login": "Register" }}</h3>
+        <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>  
+        <div class="container" *ngIf="!isLoading">
+          <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="Full Name"
+              class="form__input"
               required
               ngModel
+              *ngIf="!signInMode"
             />
             <input
               type="email"
               name="email"
               placeholder="Email"
+              class="form__input"
               required
               ngModel
               email
@@ -26,34 +30,29 @@
               type="password"
               name="password"
               placeholder="Password"
+              class="form__input"
               required
               ngModel
               minlength="6"
             />
-            <button type="submit" [disabled]="signUpForm.invalid">Sign up</button>
+            <button
+              type="submit"
+              class="btn"
+              [disabled]="signUpForm.invalid"
+            >
+            {{ signInMode ? "Login": "Register" }}
+          </button>
           </form>
-        </div>
-
-        <div class="login">
-          <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
-            <label for="selectAuth" aria-hidden="true">Login</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              ngModel
-              email
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              ngModel
-            />
-            <button type="submit" [disabled]="loginForm.invalid">Login</button>
-          </form>
+          <div class="row">
+            <p *ngIf="signInMode">
+              Don't have an account?
+              <a role="button" class="text-primary" (click)="signInMode = !signInMode">Register Here</a>
+            </p>
+            <p *ngIf="!signInMode">
+              Already have an account?
+              <a role="button" class="text-primary" (click)="signInMode = !signInMode">Login Here</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

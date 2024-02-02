@@ -16,6 +16,7 @@ import { BackButtonComponent } from './shared/back-button/back-button.component'
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { LoginComponent } from './login/login.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './login/login.component';
     InstituteListComponent,
     BackButtonComponent,
     NotificationsComponent,
-    LoginComponent,    
+    LoginComponent,
+    LoadingSpinnerComponent,    
   ],
   imports: [
     BrowserModule,

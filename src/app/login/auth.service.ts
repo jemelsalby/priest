@@ -92,7 +92,6 @@ export class AuthService {
       const expirationDuration =
         expireTime.getTime() - new Date().getTime();
       this.autoLogout(expirationDuration);
-      this.router.navigate([""]);
     }
     return
   }
