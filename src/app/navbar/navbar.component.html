@@ -1,12 +1,21 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand " routerLink="">
-      <img src="../../assets/images/logo.png" alt="Csa logo" style="height: 30px; width: auto;">
+    <a class="navbar-brand" routerLink="">
+      <img
+        src="../../assets/images/logo.png"
+        alt="Csa logo"
+        style="height: 30px; width: auto"
+      />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mynavbar"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
+    <div class="collapse navbar-collapse" id="mynavbar" *ngIf="isAuthenticated">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" role="button">About</a>
@@ -18,9 +27,16 @@
           <a class="nav-link" role="button">Gallery</a>
         </li>
       </ul>
-      <form class="d-flex align-items-center">
-        <button class="btn btn-danger flex-grow-0 ms-2" type="button" style="white-space: nowrap;">LOG OUT</button>
-      </form>
+      <div class="d-flex align-items-center">
+        <button
+          class="btn btn-danger flex-grow-0 ms-2"
+          type="button"
+          (click)="onLogout()"
+          style="white-space: nowrap"
+        >
+          LOG OU
+        </button>
+      </div>
     </div>
   </div>
 </nav>
