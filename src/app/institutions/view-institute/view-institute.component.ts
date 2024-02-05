@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Institute, InstitutionsService } from '../institutions.service';
+import { School, InstitutionsService } from '../institutions.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-institute.component.css'],
 })
 export class ViewInstituteComponent implements OnInit {
-  institute: Institute | undefined;
+  institute: School | undefined;
   constructor(
     private institutionService: InstitutionsService,
     private route: ActivatedRoute

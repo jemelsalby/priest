@@ -30,7 +30,7 @@
 .form__input.ng-invalid.ng-touched{
 	border-bottom-color: red;
 }
-button{
+.btn-primary{
 	transition: all .5s ease;
 	width: 70%;
 	border-radius: 30px;
@@ -41,7 +41,7 @@ button{
 	margin-top: 1.5em;
 	margin-bottom: 1em;
 }
-button:hover, button:focus{
+.btn-primary:hover, .btn-primary:focus{
 	background-color: #00B4D8 !important;
 	color:#fff !important;
 }

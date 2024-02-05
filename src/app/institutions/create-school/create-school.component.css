@@ -1,0 +1,24 @@
+.form-control{
+	/* width: 100%; */
+	border: 0px solid transparent;
+	border-radius: 0;
+	border-bottom: 1px solid #001d3d;
+	/* padding: 1em .5em .5em; */
+	/* padding-left: 2em; */
+	/* outline:none; */
+	/* margin:1.5em auto; */
+	transition: all .5s ease;
+}
+.form-control:focus{
+    box-shadow: none;
+	border-bottom-color: #0077B6;
+	/* box-shadow: 0 0 2px #00B4D8;  */
+	/* border-radius: px; */
+}
+.form-control.ng-invalid.ng-touched{
+	border-bottom-color: red;
+}
+
+/* select.form-control{
+	width: auto
+} */

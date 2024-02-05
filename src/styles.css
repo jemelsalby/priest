@@ -6,3 +6,24 @@ main, body{
     background-color: #CAF0F8;
     color: #001d3d !important;
 }
+
+.btn-primary{
+    background-color: #00B4D8;
+    color: white;
+    border: 1px solid #00B4D8;
+    /* transition: all 0.1s; */
+	/* border-radius: 30px; */
+	/* color:black; */
+	/* background-color: #fff; */
+	/* border: 1px solid black; */
+}
+.btn-primary:hover, .btn-primary:focus{
+
+    /* color: black; */
+    /* color:#0077B6; */
+    background-color: #53c5db;
+    border: 1px solid #53c5db;
+    /* border: 1px solid #00B4D8;
+	background-color: #00B4D8 !important;
+	color:#fff !important; */
+}

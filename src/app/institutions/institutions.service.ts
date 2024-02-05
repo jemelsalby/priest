@@ -1,6 +1,8 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, throwError } from 'rxjs';
 
-export interface Institute {
+export interface School {
   name: string;
   syllabus: string;
   district: string;
@@ -14,9 +16,11 @@ export interface Institute {
   providedIn: 'root',
 })
 export class InstitutionsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  private institutions: Institute[] = [
+  private baseUrl = 'https://csa-chanda-default-rtdb.asia-southeast1.firebasedatabase.app';
+  private schoolsUrl = this.baseUrl + '/schools.json'
+  private institutions: School[] = [
     {
       name: 'BJM CARMEL ACADEMY,TUKUM',
       syllabus: 'CBSE',
@@ -37,11 +41,26 @@ export class InstitutionsService {
     },
   ];
 
-  getInstitutions(): Institute[] {
+  getInstitutions(): School[] {
     return this.institutions.slice();
   }
 
-  getInstitution(index: number): Institute{
+  getInstitution(index: number): School{
     return this.institutions[index];
+  }
+
+  createSchool(school: School){
+    return this.http.post(
+      this.schoolsUrl,
+      school
+    ).pipe(
+      catchError((error: HttpErrorResponse)=>{
+        let errorMsg = "An Unknown Error Occured"
+        if(error.status === 401){
+          errorMsg = 'You dont have access to this process'
+        }
+        return throwError(()=>errorMsg)
+      })
+    )
   }
 }

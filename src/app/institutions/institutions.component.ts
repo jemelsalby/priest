@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Institute, InstitutionsService } from './institutions.service';
+import { School, InstitutionsService } from './institutions.service';
 import { AuthService } from '../login/auth.service';
 import { Subscription, take, tap } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Subscription, take, tap } from 'rxjs';
 })
 export class InstitutionsComponent implements OnInit, OnDestroy {
 
-  institutions: Institute[] | undefined;
+  institutions: School[] | undefined;
   isAdmin = false;
   subscription?: Subscription;
 

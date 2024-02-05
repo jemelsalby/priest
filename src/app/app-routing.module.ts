@@ -10,6 +10,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { ViewInstituteComponent } from './institutions/view-institute/view-institute.component';
 import { AuthGuradService } from './login/auth-gurad.service';
+import { CreateSchoolComponent } from './institutions/create-school/create-school.component';
+import { AdminGuradService } from './login/admin-gurad.service';
 
 const routes: Routes = [
   { path: '', component: HomeBodyComponent, canActivate: [AuthGuradService] },
@@ -22,6 +24,7 @@ const routes: Routes = [
     canActivate: [AuthGuradService],
     children: [
       { path: '', component: InstituteListComponent },
+      { path: 'create', component: CreateSchoolComponent, canActivate: [AdminGuradService]},
       { path: ':id', component: ViewInstituteComponent },
     ],
   },
