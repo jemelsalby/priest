@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { School, InstitutionsService } from './institutions.service';
+import { School, SchoolsService } from './institutions.service';
 import { AuthService } from '../login/auth.service';
 import { Subscription, take, tap } from 'rxjs';
 
@@ -10,14 +10,14 @@ import { Subscription, take, tap } from 'rxjs';
 })
 export class InstitutionsComponent implements OnInit, OnDestroy {
 
-  institutions: School[] | undefined;
+  schools: School[] | undefined;
   isAdmin = false;
   subscription?: Subscription;
 
-  constructor(private institutionsService: InstitutionsService, private authService: AuthService) { }
+  constructor(private schoolsService: SchoolsService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.institutions = this.institutionsService.getInstitutions();
+    this.schools = this.schoolsService.getSchools();
     this.subscription = this.authService.user.pipe(take(1),
     tap((user)=>{
       this.isAdmin = !!user && user.email === 'admin@csachanda.com' 

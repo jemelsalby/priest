@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { School, InstitutionsService } from '../institutions.service';
+import { School, SchoolsService } from '../institutions.service';
 
 @Component({
   selector: 'app-institute-list',
@@ -8,12 +8,12 @@ import { School, InstitutionsService } from '../institutions.service';
 })
 export class InstituteListComponent implements OnInit {
 
-  institutions: School[] | undefined;
+  schools: School[] | undefined;
 
-  constructor(private institutionsService: InstitutionsService) { }
+  constructor(private schoolsService: SchoolsService) { }
 
   ngOnInit(): void {
-    this.institutions = this.institutionsService.getInstitutions();
+    this.schools = this.schoolsService.getSchools();
   }
 
 }

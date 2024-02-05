@@ -4,13 +4,13 @@
     <div class="card h-100 shadow-sm">
       <div class="card-header">School Details</div>
       <div class="card-body">
-        <h5 class="card-title">{{ institute?.name }}</h5>
+        <h5 class="card-title">{{ school?.name }}</h5>
         <div class="card-text">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><b>District: </b>{{ institute?.district }}</li>
-            <li class="list-group-item"><b>Syllabus: </b>{{ institute?.syllabus }}</li>
-            <li class="list-group-item"><b>Phone No: </b><a href="tel:{{ institute?.phone }}">{{ institute?.phone }}</a></li>
-            <li class="list-group-item"><b>Email: </b><a href="mailto:{{ institute?.email }}">{{ institute?.email }}</a></li>
+            <li class="list-group-item"><b>District: </b>{{ school?.district }}</li>
+            <li class="list-group-item"><b>Syllabus: </b>{{ school?.syllabus }}</li>
+            <li class="list-group-item"><b>Phone No: </b><a href="tel:{{ school?.phone }}">{{ school?.phone }}</a></li>
+            <li class="list-group-item"><b>Email: </b><a href="mailto:{{ school?.email }}">{{ school?.email }}</a></li>
           </ul>
         </div>
       </div>
@@ -25,7 +25,7 @@
             class="img-thumbnail h-75"
             alt="..."
           />
-        <div class="card-text text-center">{{ institute?.principal }}</div>
+        <div class="card-text text-center">{{ school?.principal }}</div>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
           class="img-thumbnail h-75"
           alt="..."
         />
-      <div class="card-text text-center">{{ institute?.manager }}</div>
+      <div class="card-text text-center">{{ school?.manager }}</div>
     </div>
   </div>
   <!-- </div> -->

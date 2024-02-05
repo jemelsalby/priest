@@ -13,15 +13,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let institute of institutions; let i = index" role="button" [routerLink]="[i]">
+        <tr *ngFor="let school of schools; let i = index" role="button" [routerLink]="[i]">
           <td>{{ i + 1 }}</td>
-          <td>{{ institute.name }}</td>
-          <td>{{ institute.district }}</td>
-          <td>{{ institute.syllabus }}</td>
-          <td>{{ institute.principal }}</td>
-          <!-- <td>{{ institute.manager }}</td>
-          <td>{{ institute.phone }}</td>
-          <td>{{ institute.email }}</td> -->
+          <td>{{ school.name }}</td>
+          <td>{{ school.district }}</td>
+          <td>{{ school.syllabus }}</td>
+          <td>{{ school.principal }}</td>
+          <!-- <td>{{ school.manager }}</td>
+          <td>{{ school.phone }}</td>
+          <td>{{ school.email }}</td> -->
         </tr>
       </tbody>
     </table>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { InstitutionsService } from '../institutions.service';
+import { SchoolsService } from '../institutions.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class CreateSchoolComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(private instituteService: InstitutionsService, private router:Router, private route: ActivatedRoute) { }
+  constructor(private schoolService: SchoolsService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +20,7 @@ export class CreateSchoolComponent implements OnInit {
   onSubmit(form: NgForm){
     console.log(form.value)
     this.isLoading = true;
-    this.instituteService.createSchool(form.value).subscribe({
+    this.schoolService.createSchool(form.value).subscribe({
       next:(value)=>{
         alert("Added new School Successfully")
         this.router.navigate([""], {relativeTo: this.route})

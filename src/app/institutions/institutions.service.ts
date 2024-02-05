@@ -15,7 +15,7 @@ export interface School {
 @Injectable({
   providedIn: 'root',
 })
-export class InstitutionsService {
+export class SchoolsService {
   constructor(private http: HttpClient) {}
 
   private baseUrl = 'https://csa-chanda-default-rtdb.asia-southeast1.firebasedatabase.app';
@@ -41,11 +41,11 @@ export class InstitutionsService {
     },
   ];
 
-  getInstitutions(): School[] {
+  getSchools(): School[] {
     return this.institutions.slice();
   }
 
-  getInstitution(index: number): School{
+  getSchool(index: number): School{
     return this.institutions[index];
   }
 
