@@ -17,6 +17,7 @@ import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.compon
 import { NotificationsComponent } from './notifications/notifications.component';
 import { LoginComponent } from './login/login.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { CreateSchoolComponent } from './institutions/create-school/create-school.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     BackButtonComponent,
     NotificationsComponent,
     LoginComponent,
-    LoadingSpinnerComponent,    
+    LoadingSpinnerComponent,
+    CreateSchoolComponent,    
   ],
   imports: [
     BrowserModule,
