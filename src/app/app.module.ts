@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { CreateSchoolComponent } from './institutions/create-school/create-school.component';
 import { AuthInterceptorService } from './login/auth-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { AuthInterceptorService } from './login/auth-interceptor.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}

@@ -11,6 +11,8 @@ export interface School {
   manager: string;
   phone: string;
   email: string;
+  principal_image: string;
+  manager_image: string;
 }
 
 @Injectable({
