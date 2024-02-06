@@ -14,3 +14,9 @@
     /* --bs-list-group-border-color: white;
     --bs-list-group-color: white; */
   }
+
+  a>i{
+color: #001d3d;
+margin-left: 28px;
+font-size: 1.2rem;
+  }
