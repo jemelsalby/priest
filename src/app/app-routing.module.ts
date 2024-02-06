@@ -12,12 +12,14 @@ import { ViewInstituteComponent } from './institutions/view-institute/view-insti
 import { AuthGuradService } from './login/auth-gurad.service';
 import { CreateSchoolComponent } from './institutions/create-school/create-school.component';
 import { AdminGuradService } from './login/admin-gurad.service';
+import { CreateNotificationComponent } from './notifications/create-notification/create-notification.component';
 
 const routes: Routes = [
   { path: '', component: HomeBodyComponent, canActivate: [AuthGuradService] },
   { path: 'login', component: LoginComponent },
   { path: "aboutus", component: AboutusComponent, canActivate: [AuthGuradService] },
   { path: "notifi", component: NotificationsComponent, canActivate: [AuthGuradService] },
+  { path: "create-notification", component: CreateNotificationComponent, canActivate: [AuthGuradService, AdminGuradService] },
   {
     path: 'schools',
     component: InstitutionsComponent,

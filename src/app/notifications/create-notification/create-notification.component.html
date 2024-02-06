@@ -1,0 +1,75 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 my-2">
+        <h2 class="pt-3"><app-back-button></app-back-button> Notifications</h2>
+        <form
+          class="row bg-white rounded rounded-2 g-3 mt-2 py-2"
+          #create="ngForm"
+          (ngSubmit)="onSubmit(create)"
+        >
+          <!-- <form> -->
+          <div class="col-12">
+            <label for="name">Enter a title</label>
+            <input
+              type="text"
+              name="title"
+              id="name"
+              class="form-control"
+              ngModel
+              required
+            />
+          </div>
+          <div class="col-12">
+            <label for="description">Some brief Description</label>
+            <textarea name="description" id="description"  rows="3" ngModel required 
+            class="form-control"></textarea>
+          </div>
+          
+          <div class="col-12 col-md-6">
+            <label for="image">Upload Manager image</label>
+            <input
+              type="file"
+              id="image"
+              class="form-control"
+              (change)="onImageUpload($event)"
+              #imageVal
+              accept="image/jpeg, image/png"
+            />
+            <input
+              type="text"
+              name="image_url"
+              id="image_url"
+              class="d-none"
+              [ngModel]="image"
+            />
+          </div>
+          <div class="col-12">
+            <button
+              class="btn btn-primary"
+              [disabled]="create.invalid"
+              type="submit"
+            >
+              Create Notification
+            </button>
+          </div>
+          <!-- </form> -->
+        </form>
+
+        <div class="modal" tabindex="-1" [ngClass]="{ 'd-block': isUploading }">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Uploading Image</h5>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+              </div>
+              <div class="modal-body">
+                <app-loading-spinner></app-loading-spinner>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

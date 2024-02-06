@@ -32,7 +32,7 @@ export class CreateSchoolComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
+  
 
     this.isLoading = true;
     this.schoolService.createSchool(form.value).subscribe({

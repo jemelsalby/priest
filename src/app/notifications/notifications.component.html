@@ -3,22 +3,21 @@
     <div class="row">
       <div class="col-12 my-2">
         <h2 class="pt-3"><app-back-button></app-back-button> Notifications</h2>
-
-        <!-- Notifications Content -->
-        <div class="row g-3">
+        <button class="btn btn-primary" *ngIf="isAdmin" routerLink="/create-notification">Add Notification</button>
+        <div class="row g-3 mt-4">
           <div
             class="col-12 col-sm-6 col-md-4"
             *ngFor="let notification of notifications"
           >
             <div class="card h-100">
-              <img
-                [src]="notification.image"
+              <img *ngIf="notification.image_url"
+                [src]="notification.image_url"
                 alt="25 year celebration"
                 class="card-img-top"
               />
               <div class="card-body">
                 <h5 class="card-title">{{ notification.title }}</h5>
-                <p class="card-text">{{ notification.desc }}</p>
+                <p class="card-text">{{ notification.description }}</p>
               </div>
             </div>
           </div>

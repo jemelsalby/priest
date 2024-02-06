@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Subscription, take, tap } from 'rxjs';
+import { AuthService } from '../login/auth.service';
+import { AppNotification, NotificationService } from './notification.service';
+
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -7,17 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsComponent implements OnInit {
 
-  notifications: {title: string, image: string, desc: string}[] = [
-    { title: '25 th jubillee celebration', image: 'assets/images/25.png', desc: ''},
-    { title: '25 th jubillee celebration', image: 'assets/images/25.png', desc: ''},
-    { title: '25 th jubillee celebration', image: 'assets/images/25.png', desc: 'Lets celebrate'},
-    { title: '25 th jubillee celebration', image: 'assets/images/25.png', desc: ''},
-  ]
+  isAdmin = false;
+  notifications?: AppNotification[];
+  subscription?: Subscription;
 
-  constructor() { }
+  constructor(private notiService: NotificationService, private authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.subscription = this.authService.user.pipe(take(1),
+    tap((user)=>{
+      this.isAdmin = !!user && user.email === 'admin@csachanda.com' 
+    })
+    ).subscribe();
+    this.notiService.getNotification().subscribe(resp => this.notifications = resp);
+
   }
 
+  ngOnDestroy(): void {
+      this.subscription?.unsubscribe();
+  }
 
 }

@@ -22,6 +22,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { CreateSchoolComponent } from './institutions/create-school/create-school.component';
 import { AuthInterceptorService } from './login/auth-interceptor.service';
 import { environment } from 'src/environments/environment';
+import { CreateNotificationComponent } from './notifications/create-notification/create-notification.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { environment } from 'src/environments/environment';
     NotificationsComponent,
     LoginComponent,
     LoadingSpinnerComponent,
-    CreateSchoolComponent,    
+    CreateSchoolComponent,
+    CreateNotificationComponent,    
   ],
   imports: [
     BrowserModule,

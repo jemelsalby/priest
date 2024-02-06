@@ -11,3 +11,6 @@
     /* font-size: .9rem; */
     background-color: #90E0EF;
 }
+.card-img-top{
+    height: 300px !important;
+}
