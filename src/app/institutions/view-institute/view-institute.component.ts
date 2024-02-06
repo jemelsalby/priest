@@ -8,18 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-institute.component.css'],
 })
 export class ViewInstituteComponent implements OnInit {
-  school: School | undefined;
+  school?: School | null;
   constructor(
     private schoolService: SchoolsService,
     private route: ActivatedRoute
   ) {
-    this.school = this.schoolService.getSchool(+this.route.snapshot.params['id']);
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(
         (params) => {
-      this.school = this.schoolService.getSchool(+params['id']);
+      this.schoolService.getSchool(params['id']).subscribe({
+        next:(value)=> {
+            this.school = value;
+        },
+      });
 
     });
   }

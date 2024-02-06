@@ -13,7 +13,11 @@ export class InstituteListComponent implements OnInit {
   constructor(private schoolsService: SchoolsService) { }
 
   ngOnInit(): void {
-    this.schools = this.schoolsService.getSchools();
+    this.schoolsService.getSchools().subscribe({
+      next:(value)=>{
+        this.schools = value
+      }
+    });
   }
 
 }
