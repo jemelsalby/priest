@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, mapToCanActivate } from '@angular/router';
 
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
@@ -15,19 +15,19 @@ import { AdminGuradService } from './login/admin-gurad.service';
 import { CreateNotificationComponent } from './notifications/create-notification/create-notification.component';
 
 const routes: Routes = [
-  { path: '', component: HomeBodyComponent, canActivate: [AuthGuradService] },
+  { path: '', component: HomeBodyComponent, canActivate: mapToCanActivate([AuthGuradService]) },
   { path: 'login', component: LoginComponent },
-  { path: "aboutus", component: AboutusComponent, canActivate: [AuthGuradService] },
-  { path: "notifi", component: NotificationsComponent, canActivate: [AuthGuradService] },
-  { path: 'create-notification', component: CreateNotificationComponent, canActivate: [AuthGuradService, AdminGuradService], pathMatch: 'full' },
+  { path: "aboutus", component: AboutusComponent, canActivate: mapToCanActivate([AuthGuradService])  },
+  { path: "notifi", component: NotificationsComponent, canActivate: mapToCanActivate([AuthGuradService]) },
+  { path: 'create-notification', component: CreateNotificationComponent, canActivate: mapToCanActivate([AuthGuradService, AdminGuradService]), pathMatch: 'full' },
   {
     path: 'schools',
     component: InstitutionsComponent,
-    canActivate: [AuthGuradService],
+    canActivate:mapToCanActivate([AuthGuradService]) ,
     children: [
       { path: '', component: InstituteListComponent },
-      { path: 'create', component: CreateSchoolComponent, pathMatch: 'full'},
-      { path: 'edit/:id', component: CreateSchoolComponent, canActivate: [AdminGuradService]},
+      { path: 'create', component: CreateSchoolComponent, pathMatch: 'full' , canActivate:mapToCanActivate([AdminGuradService])},
+      { path: 'edit/:id', component: CreateSchoolComponent, canActivate: mapToCanActivate([AdminGuradService])},
       { path: ':id', component: ViewInstituteComponent },
     ],
   },

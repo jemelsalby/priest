@@ -1,25 +1,15 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRoute,
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
+import { Router, UrlTree } from '@angular/router';
 import { Observable, map, take } from 'rxjs';
 import { AuthService } from './auth.service';
-import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AdminGuradService implements CanActivate {
+export class AdminGuradService  {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
   ):
     | boolean
     | UrlTree
