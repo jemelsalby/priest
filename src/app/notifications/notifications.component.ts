@@ -12,19 +12,23 @@ import { AppNotification, NotificationService } from './notification.service';
 export class NotificationsComponent implements OnInit {
 
   isAdmin = false;
+  isLoading = false;
   notifications?: AppNotification[];
   subscription?: Subscription;
 
   constructor(private notiService: NotificationService, private authService: AuthService) { }
 
   ngOnInit(): void {
-
+    this.isLoading = true;
     this.subscription = this.authService.user.pipe(take(1),
     tap((user)=>{
       this.isAdmin = !!user && user.email === 'admin@csachanda.com' 
     })
     ).subscribe();
-    this.notiService.getNotification().subscribe(resp => this.notifications = resp);
+    this.notiService.getNotification().subscribe(resp => {
+      this.notifications = resp
+      this.isLoading = false
+    });
 
   }
 

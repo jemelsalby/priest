@@ -11,6 +11,7 @@ import { Subscription, take, tap } from 'rxjs';
 export class InstituteListComponent implements OnInit {
   schools: School[] | undefined;
   isAdmin = false;
+  isLoading = false;
   subscription?: Subscription;
 
   constructor(
@@ -19,10 +20,16 @@ export class InstituteListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true
     this.schoolsService.getSchools().subscribe({
       next: (value) => {
         this.schools = value;
+        this.isLoading = false;
       },
+      error: (value) =>{
+        alert("Unknown Error Occured")
+        this.isLoading = false;
+      }
     });
 
     this.subscription = this.authService.user
