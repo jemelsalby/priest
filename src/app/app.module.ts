@@ -40,7 +40,7 @@ import { CreateNotificationComponent } from './notifications/create-notification
     LoginComponent,
     LoadingSpinnerComponent,
     CreateSchoolComponent,
-    CreateNotificationComponent,    
+    CreateNotificationComponent,
   ],
   imports: [
     BrowserModule,
