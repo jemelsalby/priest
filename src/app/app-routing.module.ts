@@ -19,14 +19,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: "aboutus", component: AboutusComponent, canActivate: [AuthGuradService] },
   { path: "notifi", component: NotificationsComponent, canActivate: [AuthGuradService] },
-  { path: 'create-notification', component: CreateNotificationComponent, canActivate: [AuthGuradService, AdminGuradService] },
+  { path: 'create-notification', component: CreateNotificationComponent, canActivate: [AuthGuradService, AdminGuradService], pathMatch: 'full' },
   {
     path: 'schools',
     component: InstitutionsComponent,
     canActivate: [AuthGuradService],
     children: [
       { path: '', component: InstituteListComponent },
-      { path: 'create', component: CreateSchoolComponent, canActivate: [AdminGuradService]},
+      { path: 'create', component: CreateSchoolComponent, pathMatch: 'full'},
       { path: 'edit/:id', component: CreateSchoolComponent, canActivate: [AdminGuradService]},
       { path: ':id', component: ViewInstituteComponent },
     ],

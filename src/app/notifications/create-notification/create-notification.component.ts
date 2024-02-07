@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { NotificationService } from '../notification.service';
-import { StorageService } from 'src/app/shared/storage.service';
 
 @Component({
   selector: 'app-create-notification',
@@ -16,7 +15,8 @@ export class CreateNotificationComponent implements OnInit {
   imageValue?: ElementRef;
   isUploading = false
   image = ''
-  constructor(private storage: StorageService, private noti:NotificationService, private router: Router) { }
+  constructor(
+     private noti:NotificationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,20 +37,6 @@ export class CreateNotificationComponent implements OnInit {
   onImageUpload(value: any) {
     this.image = '';
     const file = value.target.files[0];
-    if (this.storage.isImageValid(file)) {
-      this.isUploading = true;
-      this.storage.imageUpload(file, 'notification').then((url) => {
-        this.image = url;
-        this.isUploading = false;
-      });
-    } else {
-      if (this.imageValue) {
-        this.imageValue.nativeElement.value = '';
-      }
-      alert(
-        'Upload valid file. Valid file is either png or jpeg with size less than 2 MB'
-      );
-    }
   }
 
 }
