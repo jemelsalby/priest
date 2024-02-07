@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: '', component: HomeBodyComponent, canActivate: mapToCanActivate([AuthGuradService]) },
   { path: 'login', component: LoginComponent },
   { path: "aboutus", component: AboutusComponent, canActivate: mapToCanActivate([AuthGuradService])  },
-  { path: "notifi", component: NotificationsComponent, canActivate: mapToCanActivate([AuthGuradService]) },
+  { path: "notification", component: NotificationsComponent, canActivate: mapToCanActivate([AuthGuradService]) },
   { path: 'create-notification', component: CreateNotificationComponent, canActivate: mapToCanActivate([AuthGuradService, AdminGuradService]), pathMatch: 'full' },
   {
     path: 'schools',

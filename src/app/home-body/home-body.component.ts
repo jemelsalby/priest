@@ -9,7 +9,7 @@ export class HomeBodyComponent implements OnInit {
 
   bodyItems = [
     {name: 'About', link: 'aboutus', icon: 'bi-info' }, 
-    {name: 'Notifications', link: 'notifi', icon: 'bi-bell'},
+    {name: 'Notifications', link: 'notification', icon: 'bi-bell'},
     {name: 'Schools', link: 'schools', icon: 'bi-building'},
     {name: 'Family Directory', link: 'family', icon: 'bi-people-fill'}, 
     {name: 'Gallery', link: 'gallery', icon: ' bi-images'}, 

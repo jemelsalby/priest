@@ -4,7 +4,7 @@
       <div class="col-12 my-2">
         <h2 class="pt-3"><app-back-button></app-back-button> Schools</h2>
         <div >
-          <button class="btn btn-primary" [routerLink]="['create']" routerLinkActive="d-none" role="button" *ngIf="isAdmin">Create School</button>
+          <button class="btn btn-primary" routerLink="create" routerLinkActive="d-none" role="button" *ngIf="isAdmin">Create School</button>
         </div>
         <router-outlet></router-outlet>
       </div>
