@@ -18,13 +18,16 @@
     <div class="collapse navbar-collapse" id="mynavbar" *ngIf="isAuthenticated">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" role="button">About</a>
+          <a routerLink="" class="nav-link" role="button">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" role="button">Family directory</a>
+          <a routerLink="family" class="nav-link" role="button">Family directory</a> 
         </li>
         <li class="nav-item">
-          <a class="nav-link" role="button">Gallery</a>
+          <a routerLink="gallery" class="nav-link" role="button">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="aboutus" class="nav-link" role="button">aboutus</a>
         </li>
       </ul>
 
