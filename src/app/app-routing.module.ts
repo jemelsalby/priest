@@ -27,6 +27,7 @@ const routes: Routes = [
     children: [
       { path: '', component: InstituteListComponent },
       { path: 'create', component: CreateSchoolComponent, canActivate: [AdminGuradService]},
+      { path: 'edit/:id', component: CreateSchoolComponent, canActivate: [AdminGuradService]},
       { path: ':id', component: ViewInstituteComponent },
     ],
   },

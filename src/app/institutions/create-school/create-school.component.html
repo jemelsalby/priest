@@ -11,7 +11,7 @@
       name="name"
       id="name"
       class="form-control"
-      ngModel
+      [ngModel]="school.name"
       required
     />
   </div>
@@ -22,13 +22,14 @@
       name="district"
       id="district"
       class="form-control"
-      ngModel
+      [ngModel]="school.district"
       required
     />
   </div>
   <div class="col-sm-4 col-md-6">
     <label for="syllabus">Select syllabus</label>
-    <select name="syllabus" id="syllabus" class="form-control" ngModel required>
+    <select name="syllabus" id="syllabus" class="form-control" [ngModel]="school.syllabus" required >
+      <option selected value="">Select an option</option>
       <option value="CBSE">CBSE</option>
       <option value="STATE">State</option>
     </select>
@@ -40,7 +41,7 @@
       name="phone"
       id="phone"
       class="form-control"
-      ngModel
+      [ngModel]="school.phone"
       required
     />
   </div>
@@ -51,7 +52,7 @@
       name="email"
       id="email"
       class="form-control"
-      ngModel
+      [ngModel]="school.email"
       required
       email
     />
@@ -63,7 +64,7 @@
       name="principal"
       id="principal"
       class="form-control"
-      ngModel
+      [ngModel]="school.principal"
       required
     />
   </div>
@@ -83,7 +84,7 @@
       name="principal_image"
       id="principal_image"
       class="d-none"
-      [ngModel]="principalImage"
+      [ngModel]="school.principal_image"
       required
     />
   </div>
@@ -94,7 +95,7 @@
       name="manager"
       id="manager"
       class="form-control"
-      ngModel
+      [ngModel]="school.manager"
       required
     />
   </div>
@@ -114,12 +115,12 @@
       name="manager_image"
       id="manager_image"
       class="d-none"
-      [ngModel]="managerImage"
+      [ngModel]="school.manager_image"
       required
     />
   </div>
   <div class="col-12">
-    <button class="btn btn-primary" [disabled]="create.invalid" type="submit">Create</button>
+    <button class="btn btn-primary" [disabled]="create.invalid" type="submit">{{ isEditing ? 'Edit' : 'Create' }}</button>
   </div>
   <!-- </form> -->
 </form>

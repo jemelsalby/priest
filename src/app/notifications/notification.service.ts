@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, throwError } from 'rxjs';
 
-export interface AppNotification{
+export interface AppNotification {
   id?: string;
   title: string;
   image_url: string;
@@ -10,16 +10,15 @@ export interface AppNotification{
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
-
   private baseUrl =
     'https://csa-chanda-default-rtdb.asia-southeast1.firebasedatabase.app';
   private notiUrl = this.baseUrl + '/notification.json';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getNotification(){
+  getNotification() {
     return this.http.get<AppNotification[]>(this.notiUrl).pipe(
       map((value: { [key: string]: any }) => {
         return Object.keys(value).map((key) => {
@@ -32,15 +31,23 @@ export class NotificationService {
     );
   }
 
-  createNotification(notification: Notification){
+  createNotification(notification: Notification) {
     return this.http.post(this.notiUrl, notification).pipe(
-      catchError((error: HttpErrorResponse) => {
-        let errorMsg = 'An Unknown Error Occured';
-        if (error.status === 401) {
-          errorMsg = 'You dont have access to this process';
-        }
-        return throwError(() => errorMsg);
-      })
+      catchError(this.handleError)
     );
+  }
+
+  deleteNotification(index: string) {
+    return this.http
+      .delete(this.baseUrl + '/notification/' + index + '.json')
+      .pipe(catchError(this.handleError));
+  }
+
+  handleError(error: HttpErrorResponse) {
+    let errorMsg = 'An Unknown Error Occured';
+    if (error.status === 401) {
+      errorMsg = 'You dont have access to this process';
+    }
+    return throwError(() => errorMsg);
   }
 }

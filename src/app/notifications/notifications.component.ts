@@ -28,6 +28,21 @@ export class NotificationsComponent implements OnInit {
 
   }
 
+  onDeleteNoti(index?: string){
+
+    if(index){
+      this.notiService.deleteNotification(index).subscribe({
+        next: (value) => {
+          alert('Deleted Notification sucessfully');
+          this.ngOnInit()
+        },
+        error: (err) => {
+          alert(err);
+        },
+      });
+    }
+  }
+
   ngOnDestroy(): void {
       this.subscription?.unsubscribe();
   }

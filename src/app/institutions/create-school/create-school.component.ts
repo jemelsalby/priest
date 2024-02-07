@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
-import { SchoolsService } from '../institutions.service';
+import { School, SchoolsService } from '../institutions.service';
 
 @Component({
   selector: 'app-create-school',
@@ -17,10 +17,22 @@ export class CreateSchoolComponent implements OnInit {
   @ViewChild('principal_img', { static: false })
   principalValue?: ElementRef;
 
-  isLoading = false;
   isUploading = false;
-  principalImage: string = '';
-  managerImage: string = '';
+  isEditing = false;
+  id: string = '';
+  // principalImage: string = '';
+  // managerImage: string = '';
+  school: School = {
+    name: '',
+    syllabus: '',
+    phone: '',
+    district: '',
+    email: '',
+    principal: '',
+    principal_image: '',
+    manager: '',
+    manager_image: '',
+  };
 
   constructor(
     private schoolService: SchoolsService,
@@ -29,32 +41,51 @@ export class CreateSchoolComponent implements OnInit {
     private fireStorage: AngularFireStorage
   ) {}
 
-  ngOnInit(): void {}
-
-  onSubmit(form: NgForm) {
-  
-
-    this.isLoading = true;
-    this.schoolService.createSchool(form.value).subscribe({
-      next: (value) => {
-        alert('Added new School Successfully');
-        this.router.navigate([''], { relativeTo: this.route });
-        this.isLoading = false;
-      },
-      error: (err) => {
-        this.isLoading = false;
-        alert(err);
-      },
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.id = params['id'];
+      if(this.id){
+        this.schoolService
+          .getSchool(params['id'])
+          .subscribe((resp) => (this.school = resp));
+        this.isEditing = params['id'] != null;
+        console.log(this.isEditing)
+      }
     });
   }
 
+  onSubmit(form: NgForm) {
+
+    if(this.isEditing){
+      this.schoolService.editSchool(form.value, this.id).subscribe({
+        next: (value) => {
+          alert('Edited school Successfully');
+          this.isEditing = false
+          this.router.navigate([''], { relativeTo: this.route });
+        },
+        error: (err) => {
+          alert(err);
+        },
+      });
+    }else{
+      this.schoolService.createSchool(form.value).subscribe({
+        next: (value) => {
+          alert('Added new School Successfully');
+          this.router.navigate([''], { relativeTo: this.route });
+        },
+        error: (err) => {
+          alert(err);
+        },
+      });
+    }
+  }
+
   onPrinciUpload(value: any) {
-    this.principalImage = '';
     const file = value.target.files[0];
     if (this.isImageValid(file)) {
       this.isUploading = true;
       this.imageUpload(file, 'pincipal').then((url) => {
-        this.principalImage = url;
+        this.school.principal_image = url;
         this.isUploading = false;
       });
     } else {
@@ -68,12 +99,11 @@ export class CreateSchoolComponent implements OnInit {
   }
 
   onManagerUpload(value: any) {
-    this.managerImage = '';
     const file = value.target.files[0];
     if (this.isImageValid(file)) {
       this.isUploading = true;
       this.imageUpload(file, 'manager').then((url) => {
-        this.managerImage = url;
+        this.school.manager_image = url;
         this.isUploading = false;
       });
     } else {

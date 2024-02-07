@@ -44,13 +44,25 @@ export class SchoolsService {
 
   createSchool(school: School) {
     return this.http.post(this.schoolsUrl, school).pipe(
-      catchError((error: HttpErrorResponse) => {
-        let errorMsg = 'An Unknown Error Occured';
-        if (error.status === 401) {
-          errorMsg = 'You dont have access to this process';
-        }
-        return throwError(() => errorMsg);
-      })
+      catchError(this.handleError)
     );
+  }
+
+  editSchool(school: School, index: string){
+    return this.http.put(this.baseUrl + '/schools/' + index + '.json', school).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  deleteSchool(index:string){
+    return this.http.delete(this.baseUrl + '/schools/' + index + '.json').pipe(catchError(this.handleError))
+  }
+
+  handleError(error: HttpErrorResponse){
+      let errorMsg = 'An Unknown Error Occured';
+      if (error.status === 401) {
+        errorMsg = 'You dont have access to this process';
+      }
+      return throwError(() => errorMsg);
   }
 }

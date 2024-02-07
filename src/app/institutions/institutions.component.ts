@@ -28,6 +28,6 @@ export class InstitutionsComponent implements OnInit, OnDestroy {
       this.subscription?.unsubscribe();
   }
   navigateToAnotherPage() {
-    this.router.navigate(['schools/create']); // Change '/another-page' to the route of the page you want to navigate to
+    this.router.navigate(['schools/create']); 
   }
 }
