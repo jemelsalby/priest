@@ -1,8 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { NgForm } from '@angular/forms';
-import { NotificationService } from '../notification.service';
 import { Router } from '@angular/router';
+
+import { NotificationService } from '../notification.service';
+import { StorageService } from 'src/app/shared/storage.service';
 
 @Component({
   selector: 'app-create-notification',
@@ -15,7 +16,7 @@ export class CreateNotificationComponent implements OnInit {
   imageValue?: ElementRef;
   isUploading = false
   image = ''
-  constructor(private fireStorage: AngularFireStorage, private noti:NotificationService, private router: Router) { }
+  constructor(private storage: StorageService, private noti:NotificationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,9 +37,9 @@ export class CreateNotificationComponent implements OnInit {
   onImageUpload(value: any) {
     this.image = '';
     const file = value.target.files[0];
-    if (this.isImageValid(file)) {
+    if (this.storage.isImageValid(file)) {
       this.isUploading = true;
-      this.imageUpload(file, 'notification').then((url) => {
+      this.storage.imageUpload(file, 'notification').then((url) => {
         this.image = url;
         this.isUploading = false;
       });
@@ -52,21 +53,4 @@ export class CreateNotificationComponent implements OnInit {
     }
   }
 
-  async imageUpload(file: any, partialPath: string): Promise<string> {
-    if (file) {
-      const path = `images/${partialPath}_${file.name}`;
-      const uploadTask = await this.fireStorage.upload(path, file);
-      const url = await uploadTask.ref.getDownloadURL();
-      console.log(url);
-      return url;
-    }
-    return '';
-  }
-
-  isImageValid(file: any): boolean {
-    return (
-      (file.type === 'image/jpeg' || file.type === 'image/png') &&
-      +file.size <= 2000000
-    );
-    }
 }

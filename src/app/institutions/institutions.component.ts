@@ -14,7 +14,7 @@ export class InstitutionsComponent implements OnInit, OnDestroy {
   isAdmin = false;
   subscription?: Subscription;
 
-  constructor(private schoolsService: SchoolsService, private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.subscription = this.authService.user.pipe(take(1),
@@ -28,6 +28,6 @@ export class InstitutionsComponent implements OnInit, OnDestroy {
       this.subscription?.unsubscribe();
   }
   navigateToAnotherPage() {
-    this.router.navigate(['schools/create']); 
+    this.router.navigate(['create']); 
   }
 }

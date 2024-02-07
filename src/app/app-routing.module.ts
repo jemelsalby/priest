@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: "aboutus", component: AboutusComponent, canActivate: [AuthGuradService] },
   { path: "notifi", component: NotificationsComponent, canActivate: [AuthGuradService] },
-  { path: "create-notification", component: CreateNotificationComponent, canActivate: [AuthGuradService, AdminGuradService] },
+  { path: 'create-notification', component: CreateNotificationComponent, canActivate: [AuthGuradService, AdminGuradService] },
   {
     path: 'schools',
     component: InstitutionsComponent,

@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 import { School, SchoolsService } from '../institutions.service';
+import { StorageService } from 'src/app/shared/storage.service';
 
 @Component({
   selector: 'app-create-school',
@@ -38,7 +38,7 @@ export class CreateSchoolComponent implements OnInit {
     private schoolService: SchoolsService,
     private router: Router,
     private route: ActivatedRoute,
-    private fireStorage: AngularFireStorage
+    private storage: StorageService
   ) {}
 
   ngOnInit(): void {
@@ -82,9 +82,9 @@ export class CreateSchoolComponent implements OnInit {
 
   onPrinciUpload(value: any) {
     const file = value.target.files[0];
-    if (this.isImageValid(file)) {
+    if (this.storage.isImageValid(file)) {
       this.isUploading = true;
-      this.imageUpload(file, 'pincipal').then((url) => {
+      this.storage.imageUpload(file, 'pincipal').then((url) => {
         this.school.principal_image = url;
         this.isUploading = false;
       });
@@ -100,9 +100,9 @@ export class CreateSchoolComponent implements OnInit {
 
   onManagerUpload(value: any) {
     const file = value.target.files[0];
-    if (this.isImageValid(file)) {
+    if (this.storage.isImageValid(file)) {
       this.isUploading = true;
-      this.imageUpload(file, 'manager').then((url) => {
+      this.storage.imageUpload(file, 'manager').then((url) => {
         this.school.manager_image = url;
         this.isUploading = false;
       });
@@ -116,25 +116,4 @@ export class CreateSchoolComponent implements OnInit {
     }
   }
 
-  async imageUpload(file: any, partialPath: string): Promise<string> {
-    if (file) {
-      const path = `images/${partialPath}_${file.name}`;
-      const uploadTask = await this.fireStorage.upload(path, file);
-      const url = await uploadTask.ref.getDownloadURL();
-      console.log(url);
-      return url;
-    }
-    return '';
-  }
-
-  isImageValid(file: any): boolean {
-    return (
-      (file.type === 'image/jpeg' || file.type === 'image/png') &&
-      +file.size <= 2000000
-    );
-    // return (
-    //   (file.type === 'image/jpeg' || file.type === 'image/png') &&
-    //   +file.size <= 80000
-    // );
-  }
 }
